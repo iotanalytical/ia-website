@@ -11,6 +11,9 @@ import {
   Col,
 } from "reactstrap";
 
+import { LineChart } from "../../components/LineChart/LineChart";
+import { PieChart } from "../../components/PieChart/PieChart";
+
 const Dashboard = () => {
   return (
     <>
@@ -22,29 +25,19 @@ const Dashboard = () => {
                 <h5 className="card-category">Consumption per Month</h5>
                 <CardTitle tag="h3">Electricity</CardTitle>
               </CardHeader>
-              <CardBody>
-               
-                  {/* <Line
-                      data={chartExample7.data}
-                      options={chartExample7.options}
-                    /> */}
-                
+              <CardBody className = "my-auto">
+                <LineChart />
               </CardBody>
             </Card>
           </Col>
           <Col lg="4">
-            <Card className="card-chart mb-3" >
+            <Card className="card-chart mb-3">
               <CardHeader>
                 <h5 className="card-category">Consumption per Month</h5>
                 <CardTitle tag="h3">Water</CardTitle>
               </CardHeader>
               <CardBody>
-               
-                  {/* <Line
-                      data={chartExample2.data}
-                      options={chartExample2.options}
-                    /> */}
-              
+                <LineChart />
               </CardBody>
             </Card>
           </Col>
@@ -55,12 +48,7 @@ const Dashboard = () => {
                 <CardTitle tag="h3">Gas</CardTitle>
               </CardHeader>
               <CardBody>
-               
-                  {/* <Line
-                      data={chartExample3.data}
-                      options={chartExample3.options}
-                    /> */}
-               
+                <LineChart />
               </CardBody>
             </Card>
           </Col>
@@ -75,12 +63,7 @@ const Dashboard = () => {
                 </CardTitle>
               </CardHeader>
               <CardBody>
-              
-                  {/* <Pie
-                      data={chartExample4.data}
-                      options={chartExample4.options}
-                    /> */}
-               
+                <PieChart />
               </CardBody>
             </Card>
           </Col>
@@ -93,12 +76,7 @@ const Dashboard = () => {
                 </CardTitle>
               </CardHeader>
               <CardBody>
-              
-                  {/* <Pie
-                      data={chartExample5.data}
-                      options={chartExample5.options}
-                    /> */}
-                
+                <PieChart />
               </CardBody>
             </Card>
           </Col>
@@ -111,12 +89,7 @@ const Dashboard = () => {
                 </CardTitle>
               </CardHeader>
               <CardBody>
-              
-                  {/* <Pie
-                      data={chartExample6.data}
-                      options={chartExample6.options}
-                    /> */}
-              
+                <PieChart />
               </CardBody>
             </Card>
           </Col>
