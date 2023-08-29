@@ -1,40 +1,6 @@
 
 @mixin desktop {
-  @media screen and (max-width: 1023px) {
+  @media screen and (min-width: 1280px) {
     @content;
-  }
-}
-
-@mixin tablet-extend {
-  @media screen and (min-width: 992px) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media screen and (max-width: 991px) {
-    @content;
-  }
-}
-
-@mixin mobile {
-  @media screen and (max-width: 576px) {
-    @content;
-  }
-}
-
-@mixin navbar-sticky {
-  .navbar-header {
-    margin-top: 0px;
-    padding: 10px 0px;
-    -moz-box-shadow: 0 10px 33px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 10px 33px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 10px 33px rgba(0, 0, 0, 0.1);
-    &.sticky-dark {
-      background-color: #222831;
-    }
-    &.sticky-light {
-      background-color: #fff;
-    }
   }
 }

@@ -1,0 +1,19 @@
+@use "../../styles/partials/mixins" as *;
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+
+  &__img {
+    width: 40rem;
+  }
+
+  @include desktop {
+    width: 1280px;
+    margin: 0 auto;
+  }
+
+}
