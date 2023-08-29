@@ -1,5 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import "./App.scss";
+import "bootstrap";
+
 import Landing from "./pages/Landing/Landing";
 
 function App() {
