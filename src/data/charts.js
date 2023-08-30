@@ -154,17 +154,12 @@ const gasPieChart = {
         borderWidth: 0,
         backgroundColor: ["#DC1C13", "#F07470", "#F6BDC0"],
         hoverBackgroundColor: ["#DC1C13", "#F07470", "#F6BDC0"],
-      
       },
     ],
-  }
+  },
 };
 
-module.exports = {
-  elecLineChart,
-  waterLineChart,
-  gasLineChart,
-  elecPieChart,
-  waterPieChart,
-  gasPieChart,
-};
+export const lineCharts = [elecLineChart, waterLineChart, gasLineChart];
+export const pieCharts = [elecPieChart, waterPieChart, gasPieChart];
+
+

@@ -8,7 +8,14 @@
   padding: 0 12px;
 
   &__img {
-    width: 40rem;
+    width: 50%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 40%;
   }
 
   @include desktop {

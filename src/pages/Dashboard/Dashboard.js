@@ -9,16 +9,10 @@ import {
   Table,
   Row,
   Col,
+  Badge,
 } from "reactstrap";
 
-import {
-  elecLineChart,
-  waterLineChart,
-  gasLineChart,
-  elecPieChart,
-  waterPieChart,
-  gasPieChart,
-} from "../../data/charts";
+import { lineCharts, pieCharts } from "../../data/charts";
 
 import ChartCard from "../../components/ChartCard/ChartCard";
 import FooterDashboard from "../../components/FooterDashboard/FooterDashboard";
@@ -28,44 +22,30 @@ const Dashboard = () => {
     <>
       <main className="content">
         <Row>
-          <ChartCard
-            category={elecLineChart.category}
-            title={elecLineChart.title}
-            chartType={elecLineChart.type}
-            chartData={elecLineChart.data}
-          />
-          <ChartCard
-            category={waterLineChart.category}
-            title={waterLineChart.title}
-            chartType={waterLineChart.type}
-            chartData={waterLineChart.data}
-          />
-          <ChartCard
-            category={gasLineChart.category}
-            title={gasLineChart.title}
-            chartType={gasLineChart.type}
-            chartData={gasLineChart.data}
-          />
+          {lineCharts.map((chart) => {
+            return (
+              <ChartCard
+                key={chart.id}
+                category={chart.category}
+                title={chart.title}
+                chartType={chart.type}
+                chartData={chart.data}
+              />
+            );
+          })}
         </Row>
         <Row>
-          <ChartCard
-            category={elecPieChart.category}
-            title={elecPieChart.title}
-            chartType={elecPieChart.type}
-            chartData={elecPieChart.data}
-          />
-          <ChartCard
-            category={waterPieChart.category}
-            title={waterPieChart.title}
-            chartType={waterPieChart.type}
-            chartData={waterPieChart.data}
-          />
-          <ChartCard
-            category={gasPieChart.category}
-            title={gasPieChart.title}
-            chartType={gasPieChart.type}
-            chartData={gasPieChart.data}
-          />
+          {pieCharts.map((chart) => {
+            return (
+              <ChartCard
+                key={chart.id}
+                category={chart.category}
+                title={chart.title}
+                chartType={chart.type}
+                chartData={chart.data}
+              />
+            );
+          })}
         </Row>
         <Row>
           <Col lg="12" md="12">
@@ -89,11 +69,11 @@ const Dashboard = () => {
                     <tr>
                       <td>Lighting</td>
                       <td className="text-center">
-                        <h3>
-                          <span className="badge badge-pill badge-danger">
+                        <h5>
+                          <Badge color="danger" pill>
                             Error
-                          </span>
-                        </h3>
+                          </Badge>
+                        </h5>
                       </td>
                       <td className="text-center">Crash</td>
                       <td className="text-center">Dining room</td>
@@ -101,11 +81,11 @@ const Dashboard = () => {
                     <tr>
                       <td>Wall Mount Lighting</td>
                       <td className="text-center">
-                        <h3>
-                          <span className="badge badge-pill badge-warning">
+                        <h5>
+                          <Badge color="warning" pill>
                             Warning
-                          </span>
-                        </h3>
+                          </Badge>
+                        </h5>
                       </td>
                       <td className="text-center">Warn</td>
                       <td className="text-center">Hall</td>
@@ -113,11 +93,11 @@ const Dashboard = () => {
                     <tr>
                       <td>AC</td>
                       <td className="text-center">
-                        <h3>
-                          <span className="badge badge-pill badge-info">
+                        <h5>
+                          <Badge color="info" pill>
                             Info
-                          </span>
-                        </h3>
+                          </Badge>
+                        </h5>
                       </td>
                       <td className="text-center">Replacement needed</td>
                       <td className="text-center">TV Room</td>
@@ -125,11 +105,11 @@ const Dashboard = () => {
                     <tr>
                       <td>Smart Plug</td>
                       <td className="text-center">
-                        <h3>
-                          <span className="badge badge-pill badge-danger">
+                        <h5>
+                          <Badge color="danger" pill>
                             Error
-                          </span>
-                        </h3>
+                          </Badge>
+                        </h5>
                       </td>
                       <td className="text-center">Disconnect</td>
                       <td className="text-center">Libary</td>
@@ -137,11 +117,11 @@ const Dashboard = () => {
                     <tr>
                       <td>Curtain</td>
                       <td className="text-center">
-                        <h3>
-                          <span className="badge badge-pill badge-info">
+                        <h5>
+                          <Badge color="info" pill>
                             Info
-                          </span>
-                        </h3>
+                          </Badge>
+                        </h5>
                       </td>
                       <td className="text-center">Connect</td>
                       <td className="text-center">Libary</td>
