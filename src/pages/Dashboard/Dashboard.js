@@ -11,88 +11,61 @@ import {
   Col,
 } from "reactstrap";
 
-import { LineChart } from "../../components/LineChart/LineChart";
-import { PieChart } from "../../components/PieChart/PieChart";
+import {
+  elecLineChart,
+  waterLineChart,
+  gasLineChart,
+  elecPieChart,
+  waterPieChart,
+  gasPieChart,
+} from "../../data/charts";
+
+import ChartCard from "../../components/ChartCard/ChartCard";
+import FooterDashboard from "../../components/FooterDashboard/FooterDashboard";
 
 const Dashboard = () => {
   return (
     <>
       <main className="content">
         <Row>
-          <Col lg="4">
-            <Card className="card-chart mb-3">
-              <CardHeader>
-                <h5 className="card-category">Consumption per Month</h5>
-                <CardTitle tag="h3">Electricity</CardTitle>
-              </CardHeader>
-              <CardBody className = "my-auto">
-                <LineChart />
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="4">
-            <Card className="card-chart mb-3">
-              <CardHeader>
-                <h5 className="card-category">Consumption per Month</h5>
-                <CardTitle tag="h3">Water</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <LineChart />
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="4">
-            <Card className="card-chart mb-3">
-              <CardHeader>
-                <h5 className="card-category">Consumption per Month</h5>
-                <CardTitle tag="h3">Gas</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <LineChart />
-              </CardBody>
-            </Card>
-          </Col>
+          <ChartCard
+            category={elecLineChart.category}
+            title={elecLineChart.title}
+            chartType={elecLineChart.type}
+            chartData={elecLineChart.data}
+          />
+          <ChartCard
+            category={waterLineChart.category}
+            title={waterLineChart.title}
+            chartType={waterLineChart.type}
+            chartData={waterLineChart.data}
+          />
+          <ChartCard
+            category={gasLineChart.category}
+            title={gasLineChart.title}
+            chartType={gasLineChart.type}
+            chartData={gasLineChart.data}
+          />
         </Row>
         <Row>
-          <Col lg="4">
-            <Card className="card-chart mb-3">
-              <CardHeader>
-                <h5 className="card-category">Consumption</h5>
-                <CardTitle tag="h3">
-                  <i className="fa fa-bolt text-warning fa-4x" /> Electricity
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <PieChart />
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="4">
-            <Card className="card-chart mb-3">
-              <CardHeader>
-                <h5 className="card-category">Consumption</h5>
-                <CardTitle tag="h3">
-                  <i className="fa fa-tint text-primary fa-4x" /> Water
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <PieChart />
-              </CardBody>
-            </Card>
-          </Col>
-          <Col lg="4">
-            <Card className="card-chart mb-3">
-              <CardHeader>
-                <h5 className="card-category">Consumption</h5>
-                <CardTitle tag="h3">
-                  <i className="fa fa-fire text-danger fa-4x" /> Gas
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <PieChart />
-              </CardBody>
-            </Card>
-          </Col>
+          <ChartCard
+            category={elecPieChart.category}
+            title={elecPieChart.title}
+            chartType={elecPieChart.type}
+            chartData={elecPieChart.data}
+          />
+          <ChartCard
+            category={waterPieChart.category}
+            title={waterPieChart.title}
+            chartType={waterPieChart.type}
+            chartData={waterPieChart.data}
+          />
+          <ChartCard
+            category={gasPieChart.category}
+            title={gasPieChart.title}
+            chartType={gasPieChart.type}
+            chartData={gasPieChart.data}
+          />
         </Row>
         <Row>
           <Col lg="12" md="12">
@@ -179,6 +152,7 @@ const Dashboard = () => {
             </Card>
           </Col>
         </Row>
+        <FooterDashboard />
       </main>
     </>
   );
