@@ -17,6 +17,10 @@ function NavbarSite() {
 
   const expand = "md";
 
+  const handleLogIn = () => {
+    navigate("/login");
+  };
+
   const handleLogOut = () => {
     navigate("/");
   };
@@ -39,7 +43,7 @@ function NavbarSite() {
           placement="end"
         >
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} >
+            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
               IOT ANALYTICAL
             </Offcanvas.Title>
           </Offcanvas.Header>
@@ -55,21 +59,33 @@ function NavbarSite() {
                 <Nav.Link href="#contact-us">Contact Us</Nav.Link>
               )}
 
-              {pathname === "/dashboard" && <Nav.Item>Welcome Ali!</Nav.Item>}
+              {pathname === "/dashboard" && (
+                <Nav.Item className="user-name">Welcome Ali!</Nav.Item>
+              )}
               {pathname === "/dashboard/demo" && (
-                <Nav.Item>Welcome guest!</Nav.Item>
+                <Nav.Item className="user-name">Welcome guest!</Nav.Item>
               )}
             </Nav>
             {pathname === "/" && (
-              <Button id="btn-login" variant="outline-primary">Log In</Button>
+              <Button onClick={handleLogIn} className="btn-login" variant="outline-primary">
+                Log In
+              </Button>
             )}
             {pathname === "/dashboard" && (
-              <Button onClick={handleLogOut} variant="outline-primary">
+              <Button
+                className="btn-logout"
+                onClick={handleLogOut}
+                variant="outline-primary"
+              >
                 Log Out
               </Button>
             )}
             {pathname === "/dashboard/demo" && (
-              <Button onClick={handleLogOut} variant="outline-primary">
+              <Button
+                className="btn-logout"
+                onClick={handleLogOut}
+                variant="outline-primary"
+              >
                 Log Out
               </Button>
             )}
