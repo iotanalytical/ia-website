@@ -35,3 +35,5 @@ const logs = [
     zone: "Libary",
   },
 ];
+
+export default logs;

@@ -51,30 +51,6 @@ h6 {
   font-size: 14px;
 }
 
-.bg-gray {
-  background: #fbfbfb;
-}
-
-.fw-light {
-  font-weight: light;
-}
-
-.fw-bold {
-  font-weight: bold;
-}
-
-.fw-semibold {
-  font-weight: 500;
-}
-
-/* Button Custom */
-.btn {
-  padding: 8px 25px;
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}
-
 .btn-custom {
   background: $custom-color;
   color: $custom-text-color;
@@ -126,17 +102,4 @@ h6 {
   }
 }
 
-/* Text Custom */
-.text-custom {
-  color: $custom-color;
-}
 
-/* Form Control */
-.form-control {
-  box-shadow: none !important;
-  height: 45px;
-  padding-left: 20px;
-  border: 1px solid #e0e0e0;
-  background: #eee;
-  border-color: #eee;
-}

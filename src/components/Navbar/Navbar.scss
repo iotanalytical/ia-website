@@ -10,5 +10,17 @@ div.nav-item {
 }
 
 .navbar-nav .nav-link {
-  padding: 8px 20px;
+  padding-left: 1rem;
+}
+
+div.offcanvas-header {
+  padding-left: 2rem;
+}
+
+#btn-login {
+  margin-left: 1rem;
+
+  @include tablet {
+    margin-top: 1rem;
+  }
 }

@@ -8,13 +8,14 @@ import {
   CardTitle,
   Table,
   Row,
-  Col,
-  Badge,
+  Col
 } from "reactstrap";
 
 import { lineCharts, pieCharts } from "../../data/charts";
+import logs from "../../data/logs";
 
 import ChartCard from "../../components/ChartCard/ChartCard";
+import LogTableItem from "../../components/LogTableItem/LogTableItem";
 import FooterDashboard from "../../components/FooterDashboard/FooterDashboard";
 
 const Dashboard = () => {
@@ -66,66 +67,17 @@ const Dashboard = () => {
                     </tr>
                   </thead>
                   <tbody className="text-white">
-                    <tr>
-                      <td>Lighting</td>
-                      <td className="text-center">
-                        <h5>
-                          <Badge color="danger" pill>
-                            Error
-                          </Badge>
-                        </h5>
-                      </td>
-                      <td className="text-center">Crash</td>
-                      <td className="text-center">Dining room</td>
-                    </tr>
-                    <tr>
-                      <td>Wall Mount Lighting</td>
-                      <td className="text-center">
-                        <h5>
-                          <Badge color="warning" pill>
-                            Warning
-                          </Badge>
-                        </h5>
-                      </td>
-                      <td className="text-center">Warn</td>
-                      <td className="text-center">Hall</td>
-                    </tr>
-                    <tr>
-                      <td>AC</td>
-                      <td className="text-center">
-                        <h5>
-                          <Badge color="info" pill>
-                            Info
-                          </Badge>
-                        </h5>
-                      </td>
-                      <td className="text-center">Replacement needed</td>
-                      <td className="text-center">TV Room</td>
-                    </tr>
-                    <tr>
-                      <td>Smart Plug</td>
-                      <td className="text-center">
-                        <h5>
-                          <Badge color="danger" pill>
-                            Error
-                          </Badge>
-                        </h5>
-                      </td>
-                      <td className="text-center">Disconnect</td>
-                      <td className="text-center">Libary</td>
-                    </tr>
-                    <tr>
-                      <td>Curtain</td>
-                      <td className="text-center">
-                        <h5>
-                          <Badge color="info" pill>
-                            Info
-                          </Badge>
-                        </h5>
-                      </td>
-                      <td className="text-center">Connect</td>
-                      <td className="text-center">Libary</td>
-                    </tr>
+                    {logs.map((log) => {
+                      return (
+                        <LogTableItem
+                          key={log.id}
+                          node={log.node}
+                          badge={log.badge}
+                          description={log.description}
+                          zone={log.zone}
+                        />
+                      );
+                    })}
                   </tbody>
                 </Table>
               </CardBody>
