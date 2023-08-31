@@ -159,7 +159,11 @@ const gasPieChart = {
   },
 };
 
-export const lineCharts = [elecLineChart, waterLineChart, gasLineChart];
-export const pieCharts = [elecPieChart, waterPieChart, gasPieChart];
-
-
+export const Charts = [
+  elecLineChart,
+  waterLineChart,
+  gasLineChart,
+  elecPieChart,
+  waterPieChart,
+  gasPieChart,
+];
