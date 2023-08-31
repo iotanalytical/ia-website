@@ -11,41 +11,41 @@ import {
   Col,
 } from "reactstrap";
 
-import logs from "../../data/logs";
-import { Charts } from "../../data/charts";
+// import logs from "../../data/logs";
+// import { Charts } from "../../data/charts";
 
 import ChartCard from "../../components/ChartCard/ChartCard";
 import LogTableItem from "../../components/LogTableItem/LogTableItem";
 import FooterDashboard from "../../components/FooterDashboard/FooterDashboard";
 
-// import { useEffect, useState } from "react";
-// import axios from "axios";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Dashboard = () => {
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [chartsData, setChartsData] = useState([]);
-  // const [logs, setLogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [chartsData, setChartsData] = useState([]);
+  const [logs, setLogs] = useState([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:5050/charts")
-  //     .then((res) => {
-  //       setChartsData(res.data);
-  //       return axios.get("http://localhost:5050/logs");
-  //     })
-  //     .then((res) => {
-  //       setLogs(res.data);
-  //       setIsLoading(false);
-  //     }).catch(err => console.warn(err));
-  // }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5050/charts")
+      .then((res) => {
+        setChartsData(res.data);
+        return axios.get("http://localhost:5050/logs");
+      })
+      .then((res) => {
+        setLogs(res.data);
+        setIsLoading(false);
+      }).catch(err => console.warn(err));
+  }, []);
 
-  // if (isLoading) return <h1>Loading</h1>;
+  if (isLoading) return <h1>Loading</h1>;
 
   return (
     <>
       <main className="content">
         <Row>
-          {Charts.map((chart) => {
+          {chartsData.map((chart) => {
             return (
               <ChartCard
                 key={chart._id}
