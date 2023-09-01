@@ -5,6 +5,7 @@ import Accordion from "react-bootstrap/Accordion";
 const FAQ = () => {
   return (
     <section id="faq">
+      <h2 className="text-center mb-5">FAQ</h2>
       <div className="container">
         <Accordion defaultActiveKey={["0"]} alwaysOpen>
           <Accordion.Item eventKey="0">

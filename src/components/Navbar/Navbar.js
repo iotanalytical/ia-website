@@ -70,7 +70,7 @@ function NavbarSite() {
                 className="btn-login"
                 variant="outline-primary"
               >
-                Log In
+                Log In / Sign Up
               </Button>
             )}
             {pathname === "/dashboard" && (

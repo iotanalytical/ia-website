@@ -5,7 +5,7 @@ const Features = () => {
     <section id="about" className="features">
       <div className="container">
         <header className="features__header">
-          <h3 className="text-center mb-4">Features</h3>
+          <h2 className="text-center mb-4">Features</h2>
           <p className="text-center text-justify">
             IoT Analytical enhances, empowers, and helps maintain smart home
             solutions. It is designed in a way that all relevant data regarding
@@ -29,8 +29,7 @@ const Features = () => {
             <p className="description">
               Whether your smart home solution uses Android or other Linux
               distributions, IoT analytical can be easily installed through the
-              use of its restful API. Hence, it can be easily installed on
-              almost every smart home out there.
+              use of its restful API.
             </p>
           </div>
 
@@ -44,8 +43,7 @@ const Features = () => {
             <p className="description">
               All the collected data is served through mobile, web, and hub
               interface. The data is processed and can be accessed in a variety
-              of ways. Comparison feature is also available to see the
-              difference of usage in various time periods.
+              of ways.
             </p>
           </div>
 
@@ -64,26 +62,24 @@ const Features = () => {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row features__info">
           <div className="col text-center features__icon-box">
-          <div className="features__icon">
+            <div className="features__icon">
               <i className="fa fa-tachometer"></i>
             </div>
             <h4>User-friendly dashboard</h4>
-
-            <p className="description">
+           <p className="description">
               IoT analytical application is available on Android, iOS, and web.
               The household owner can access it from anywhere, whenever they
               want. The dashboard is designed to be as simple as possible.
             </p>
           </div>
-          
+
           <div className="col text-center features__icon-box">
-          <div className="features__icon">
+            <div className="features__icon">
               <i className="fa fa-dollar"></i>
             </div>
             <h4>No hidden costs</h4>
-
             <p className="description">
               All features available in IoT analytical is available for one-time
               fee payment. No subscription required. No hidden cost, no
