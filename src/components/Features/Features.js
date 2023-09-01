@@ -65,7 +65,10 @@ const Features = () => {
         </div>
 
         <div className="row">
-          <div className="col text-center">
+          <div className="col text-center features__icon-box">
+          <div className="features__icon">
+              <i className="fa fa-tachometer"></i>
+            </div>
             <h4>User-friendly dashboard</h4>
 
             <p className="description">
@@ -74,8 +77,11 @@ const Features = () => {
               want. The dashboard is designed to be as simple as possible.
             </p>
           </div>
-
-          <div className="col text-center">
+          
+          <div className="col text-center features__icon-box">
+          <div className="features__icon">
+              <i className="fa fa-dollar"></i>
+            </div>
             <h4>No hidden costs</h4>
 
             <p className="description">

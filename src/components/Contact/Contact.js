@@ -1,8 +1,13 @@
+import { useRef, useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
+import emailjs from "@emailjs/browser";
+
 import "./Contact.scss";
 import Button from "react-bootstrap/Button";
+
+import AlertBox from "../AlertBox/AlertBox";
 
 // Creating schema
 const schema = Yup.object().shape({
@@ -17,15 +22,31 @@ const schema = Yup.object().shape({
 });
 
 const Contact = () => {
+  const form = useRef();
+  const [sendEmail, setSendEmail] = useState("");
+
   return (
     <>
-      {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
       <Formik
         validationSchema={schema}
         initialValues={{ name: "", email: "", subject: "", message: "" }}
-        onSubmit={(values) => {
-          // Alert the input values of the form that we filled
-          alert(JSON.stringify(values));
+        onSubmit={() => {
+          emailjs
+            .sendForm(
+              "ia-website-contact",
+              "template_miifhml",
+              form.current,
+              "qh1FHH8ABw3iW-g-J"
+            )
+            .then(
+              () => {
+                setSendEmail("success");
+              },
+              (error) => {
+                setSendEmail("warning");
+                console.warn(error.text);
+              }
+            );
         }}
       >
         {({
@@ -38,9 +59,28 @@ const Contact = () => {
         }) => (
           <section id="contact-us" className="contact">
             <div className="container">
-              {/* Passing handleSubmit parameter tohtml form onSubmit property */}
-              <form className="contact__form" noValidate onSubmit={handleSubmit}>
-                <h2 className="mb-4 text-center">Contact Us</h2>
+              <h2 className="mb-4 text-center">Contact Us</h2>
+              {sendEmail === "success" && (
+                <AlertBox
+                  variant={"success"}
+                  icon={"check"}
+                  text={"Your message has been sent. Thank you!"}
+                />
+              )}
+              {sendEmail === "warning" && (
+                <AlertBox
+                  variant={"warning"}
+                  icon={"exclamation"}
+                  text={"Ooops! There was an error"}
+                />
+              )}
+
+              <form
+                ref={form}
+                className="contact__form"
+                noValidate
+                onSubmit={handleSubmit}
+              >
                 {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
                 <input
                   type="text"
@@ -48,12 +88,12 @@ const Contact = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.name}
-                  placeholder="Enter name"
+                  placeholder="Full name"
                   className="form-control"
                   id="name"
                 />
                 {/* If validation is not passed show errors */}
-                <p className="error">
+                <p className="contact__error">
                   {errors.name && touched.name && errors.name}
                 </p>
                 {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
@@ -63,12 +103,12 @@ const Contact = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
-                  placeholder="Enter email"
+                  placeholder="Email"
                   className="form-control"
                   id="email"
                 />
                 {/* If validation is not passed show errors */}
-                <p className="error">
+                <p className="contact__error">
                   {errors.email && touched.email && errors.email}
                 </p>
                 {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
@@ -78,12 +118,12 @@ const Contact = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.subject}
-                  placeholder="Enter subject"
+                  placeholder="Subject"
                   className="form-control"
                   id="subject"
                 />
                 {/* If validation is not passed show errors */}
-                <p className="error">
+                <p className="contact__error">
                   {errors.subject && touched.subject && errors.subject}
                 </p>
                 {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
@@ -92,16 +132,22 @@ const Contact = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password}
-                  placeholder="Enter message"
-                  className="form-control"
+                  placeholder="Message"
+                  className="contact__message form-control"
                 />
                 {/* If validation is not passed show errors */}
-                <p className="error">
+                <p className="contact__error">
                   {errors.message && touched.message && errors.message}
                 </p>
                 {/* Click on submit button to submit the form */}
 
-                <Button className="contact__btn" type="submit" variant="outline-primary">Send Message</Button>
+                <Button
+                  className="contact__btn"
+                  type="submit"
+                  variant="outline-primary"
+                >
+                  Send Message
+                </Button>
               </form>
             </div>
           </section>
