@@ -79,7 +79,7 @@ const Dashboard = () => {
                     {logs.map((log) => {
                       return (
                         <LogTableItem
-                          key={log.id}
+                          key={log._id}
                           node={log.node}
                           badge={log.badge}
                           description={log.description}

@@ -49,7 +49,7 @@ function NavbarSite() {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              {pathname === "/" && <Nav.Link href="#">Home</Nav.Link>}
+              {pathname === "/" && <Nav.Link href="#home">Home</Nav.Link>}
               {pathname === "/" && (
                 <Nav.Link href="#about">Features</Nav.Link>
               )}
