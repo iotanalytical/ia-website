@@ -50,11 +50,9 @@ function NavbarSite() {
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
               {pathname === "/" && <Nav.Link href="#home">Home</Nav.Link>}
-              {pathname === "/" && (
-                <Nav.Link href="#about">Features</Nav.Link>
-              )}
+              {pathname === "/" && <Nav.Link href="#about">Features</Nav.Link>}
               {pathname === "/" && <Nav.Link href="#faq">FAQ</Nav.Link>}
-              {pathname === "/" && <Nav.Link href="#team">Team</Nav.Link>}
+
               {pathname === "/" && (
                 <Nav.Link href="#contact-us">Contact Us</Nav.Link>
               )}
@@ -67,7 +65,11 @@ function NavbarSite() {
               )}
             </Nav>
             {pathname === "/" && (
-              <Button onClick={handleLogIn} className="btn-login" variant="outline-primary">
+              <Button
+                onClick={handleLogIn}
+                className="btn-login"
+                variant="outline-primary"
+              >
                 Log In
               </Button>
             )}
