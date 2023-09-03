@@ -1,6 +1,7 @@
 import "./Navbar.scss";
 
-// import AnchorLink from "react-anchor-link-smooth-scroll";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
@@ -12,18 +13,47 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import logo from "../../assets/images/logo.png";
 
 function NavbarSite() {
+  const [user, setUser] = useState(null);
+  const [failedAuth, setFailedAuth] = useState(false);
+
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  const expand = "md";
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+
+    if (!token) {
+      return setFailedAuth(true);
+    }
+
+    // Get the data from the API
+    axios
+      .get("http://localhost:5050/users/current", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setFailedAuth(true);
+      });
+  }, []);
 
   const handleLogIn = () => {
     navigate("/login");
   };
 
   const handleLogOut = () => {
+    sessionStorage.removeItem("token");
+    setUser(null);
+    setFailedAuth(true);
     navigate("/");
   };
+
+  const expand = "md";
 
   return (
     <Navbar expand={expand} fixed={"top"} className="bg-body-tertiary mb-3">
@@ -58,19 +88,17 @@ function NavbarSite() {
               )}
 
               {pathname === "/dashboard" && (
-                <Nav.Item className="user-name">Welcome Ali!</Nav.Item>
+                <Nav.Item className="user-name">{`Welcome ${user}!`}</Nav.Item>
               )}
-              {pathname === "/dashboard/demo" && (
-                <Nav.Item className="user-name">Welcome guest!</Nav.Item>
-              )}
+              
             </Nav>
-            {pathname === "/" && (
+            {(pathname === "/" && failedAuth ) && (
               <Button
                 onClick={handleLogIn}
                 className="btn-login"
                 variant="outline-primary"
               >
-                Log In / Sign Up
+                Log In
               </Button>
             )}
             {pathname === "/dashboard" && (
@@ -82,15 +110,7 @@ function NavbarSite() {
                 Log Out
               </Button>
             )}
-            {pathname === "/dashboard/demo" && (
-              <Button
-                className="btn-logout"
-                onClick={handleLogOut}
-                variant="outline-primary"
-              >
-                Log Out
-              </Button>
-            )}
+            
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>
