@@ -1,19 +1,25 @@
+import { useState } from "react";
+import axios from "axios";
 import "./Login.scss";
 
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
+
+import AlertBox from "../../components/AlertBox/AlertBox";
 
 // Creating schema
 const schema = Yup.object().shape({
   email: Yup.string()
     .required("Email is a required field")
     .email("Invalid email format"),
-  password: Yup.string()
-    .required("Password is a required field")
-    .min(8, "Password must be at least 8 characters"),
+  password: Yup.string().required("Password is a required field"),
 });
 
 function Login() {
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   return (
     <>
       {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
@@ -21,8 +27,17 @@ function Login() {
         validationSchema={schema}
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => {
-          // Alert the input values of the form that we filled
-          alert(JSON.stringify(values));
+          const newInputs = {
+            email: values.email,
+            password: values.password,
+          };
+          axios
+            .post("http://localhost:5050/users/login", newInputs)
+            .then((response) => {
+              sessionStorage.setItem("token", response.data.token);
+              navigate("/dashboard");
+            })
+            .catch((error) => setError(error.response.data));
         }}
       >
         {({
@@ -38,7 +53,14 @@ function Login() {
               <div className="form">
                 {/* Passing handleSubmit parameter tohtml form onSubmit property */}
                 <form noValidate onSubmit={handleSubmit}>
-                  <span>Login</span>
+                  <h1>Login</h1>
+                  {error && (
+                    <AlertBox
+                      variant={"danger"}
+                      icon={"exclamation"}
+                      text={error}
+                    />
+                  )}
                   {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
                   <input
                     type="email"
@@ -46,7 +68,7 @@ function Login() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}
-                    placeholder="Enter email id / username"
+                    placeholder="Enter email"
                     className="form-control inp_text"
                     id="email"
                   />
@@ -68,7 +90,6 @@ function Login() {
                   <p className="error">
                     {errors.password && touched.password && errors.password}
                   </p>
-                  {/* Click on submit button to submit the form */}
                   <button type="submit">Login</button>
                 </form>
               </div>

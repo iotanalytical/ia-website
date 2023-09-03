@@ -1,9 +1,9 @@
 import Alert from "react-bootstrap/Alert";
 
-const AlertBox = ({ variant, icon, text }) => {
+const AlertBox = ({ size, variant, icon, text }) => {
   const iconClass = `fa fa-${icon}`;
   return (
-    <Alert className="contact__alert" variant={variant}>
+    <Alert className={size} variant={variant}>
       <i className={iconClass}></i>
       <span className="contact__sentmsg">{text}</span>
     </Alert>

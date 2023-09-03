@@ -65,6 +65,7 @@ const Contact = () => {
                   variant={"success"}
                   icon={"check"}
                   text={"Your message has been sent. Thank you!"}
+                  size={"contact__alert"}
                 />
               )}
               {sendEmail === "warning" && (
@@ -72,6 +73,7 @@ const Contact = () => {
                   variant={"warning"}
                   icon={"exclamation"}
                   text={"Ooops! There was an error"}
+                  size={"contact__alert"}
                 />
               )}
 
