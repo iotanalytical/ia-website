@@ -1,0 +1,30 @@
+@use "../../styles/partials/mixins" as *;
+
+.container-fluid {
+  max-width: 1280px;
+}
+
+div.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-link {
+  padding-left: 1rem;
+}
+
+div.offcanvas-header {
+  padding-left: 2rem;
+}
+
+.btn-login, .btn-logout {
+  margin-left: 1rem;
+
+  @include tablet {
+    margin-top: 1rem;
+  }
+}
+
+.user-name {
+  margin-left: 1rem;
+}

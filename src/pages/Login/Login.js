@@ -2,11 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import "./Login.scss";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
 import AlertBox from "../../components/AlertBox/AlertBox";
+
+import logo from "../../assets/images/logo.png";
 
 // Creating schema
 const schema = Yup.object().shape({
@@ -22,7 +24,6 @@ function Login() {
 
   return (
     <>
-      {/* Wrapping form inside formik tag and passing our schema to validationSchema prop */}
       <Formik
         validationSchema={schema}
         initialValues={{ email: "", password: "" }}
@@ -35,7 +36,7 @@ function Login() {
             .post("http://localhost:5050/users/login", newInputs)
             .then((response) => {
               sessionStorage.setItem("token", response.data.token);
-              navigate("/dashboard");
+              navigate(`/dashboard/${response.data.user}`);
             })
             .catch((error) => setError(error.response.data));
         }}
@@ -51,9 +52,15 @@ function Login() {
           <section className="login-page">
             <div className="login">
               <div className="form">
-                {/* Passing handleSubmit parameter tohtml form onSubmit property */}
                 <form noValidate onSubmit={handleSubmit}>
-                  <h1>Login</h1>
+                  <Link to="/">
+                    <img
+                      src={logo}
+                      height="30"
+                      className="d-inline-block align-top mb-4"
+                      alt="IOT ANALYTICAL logo"
+                    />
+                  </Link>
                   {error && (
                     <AlertBox
                       variant={"danger"}
@@ -61,7 +68,7 @@ function Login() {
                       text={error}
                     />
                   )}
-                  {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
+
                   <input
                     type="email"
                     name="email"
@@ -76,7 +83,7 @@ function Login() {
                   <p className="error">
                     {errors.email && touched.email && errors.email}
                   </p>
-                  {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
+
                   <input
                     type="password"
                     name="password"

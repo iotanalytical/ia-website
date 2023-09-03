@@ -11,20 +11,21 @@ import {
   Col,
 } from "reactstrap";
 
-// import logs from "../../data/logs";
-// import { Charts } from "../../data/charts";
-
+import NavbarDashboard from "../../components/NavbarDashboard/NavbarDashboard";
 import ChartCard from "../../components/ChartCard/ChartCard";
 import LogTableItem from "../../components/LogTableItem/LogTableItem";
 import FooterDashboard from "../../components/FooterDashboard/FooterDashboard";
 
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [chartsData, setChartsData] = useState([]);
   const [logs, setLogs] = useState([]);
+
+  const { user } = useParams();
 
   useEffect(() => {
     axios
@@ -43,6 +44,7 @@ const Dashboard = () => {
 
   return (
     <>
+    <NavbarDashboard userName={user} />
       <main className="content">
         <Row>
           {chartsData.map((chart) => {

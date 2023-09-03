@@ -1,8 +1,7 @@
-import "./Navbar.scss";
+import "./NavbarDashboard.scss";
 
-import axios from "axios";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -12,11 +11,9 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 
 import logo from "../../assets/images/logo.png";
 
-function NavbarSite() {
-  const [user, setUser] = useState(null);
+function NavbarDashboard({ userName }) {
   const [failedAuth, setFailedAuth] = useState(false);
 
-  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,21 +22,6 @@ function NavbarSite() {
     if (!token) {
       return setFailedAuth(true);
     }
-
-    // Get the data from the API
-    axios
-      .get("http://localhost:5050/users/current", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        setUser(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setFailedAuth(true);
-      });
   }, []);
 
   const handleLogIn = () => {
@@ -48,7 +30,6 @@ function NavbarSite() {
 
   const handleLogOut = () => {
     sessionStorage.removeItem("token");
-    setUser(null);
     setFailedAuth(true);
     navigate("/");
   };
@@ -79,20 +60,13 @@ function NavbarSite() {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              {pathname === "/" && <Nav.Link href="#home">Home</Nav.Link>}
-              {pathname === "/" && <Nav.Link href="#about">Features</Nav.Link>}
-              {pathname === "/" && <Nav.Link href="#faq">FAQ</Nav.Link>}
-
-              {pathname === "/" && (
-                <Nav.Link href="#contact-us">Contact Us</Nav.Link>
+              {!failedAuth ? (
+                <Nav.Item className="user-name">{`Welcome ${userName}!`}</Nav.Item>
+              ) : (
+                <Nav.Item className="user-name">{`Welcome Demo user!`}</Nav.Item>
               )}
-
-              {pathname === "/dashboard" && (
-                <Nav.Item className="user-name">{`Welcome ${user}!`}</Nav.Item>
-              )}
-              
             </Nav>
-            {(pathname === "/" && failedAuth ) && (
+            {failedAuth && (
               <Button
                 onClick={handleLogIn}
                 className="btn-login"
@@ -101,7 +75,7 @@ function NavbarSite() {
                 Log In
               </Button>
             )}
-            {pathname === "/dashboard" && (
+            {!failedAuth && (
               <Button
                 className="btn-logout"
                 onClick={handleLogOut}
@@ -110,7 +84,6 @@ function NavbarSite() {
                 Log Out
               </Button>
             )}
-            
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>
@@ -118,4 +91,4 @@ function NavbarSite() {
   );
 }
 
-export default NavbarSite;
+export default NavbarDashboard;
