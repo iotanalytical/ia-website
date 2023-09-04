@@ -1,0 +1,124 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/mixins" as *;
+
+.single-log {
+  display: flex;
+  flex-direction: column;
+
+  & p {
+    font-size: 0.81rem;
+
+    @include tablet {
+      font-size: 0.87rem;
+    }
+  }
+
+  & h4 {
+    font-size: 0.7rem;
+
+    @include tablet {
+      font-size: 0.75rem;
+    }
+  }
+
+  border-bottom: 1px solid $secondary-table;
+  padding: 1rem 0;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    color: $primary-table-log;
+    font-size: 0.8rem;
+
+    @include tablet {
+      font-size: 0.9rem;
+    }
+
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__chevron {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__node {
+    padding-bottom: 1rem;
+
+    @include tablet {
+      width: 61%;
+      padding-bottom: 0;
+    }
+  }
+
+  &__msgtype {
+    padding-bottom: 1rem;
+
+    @include tablet {
+      padding-bottom: 0;
+      width: 39%;
+     
+    }
+  }
+
+  &__descrip-name,
+  &__descrip-info {
+    padding-bottom: 1rem;
+
+    @include tablet {
+      width: 50%;
+      padding-bottom: 0;
+    }
+  }
+
+  &__info,
+  &__descrip {
+    width: 40%;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      width: 47%;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__content {
+    @include tablet {
+      justify-content: space-between;
+      width: 85%;
+    }
+  }
+
+  &__delete {
+    padding-right: 0.6rem;
+    cursor: pointer;
+  }
+
+  @include tablet {
+    padding: 1rem 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & h4 {
+      display: none;
+    }
+  }
+
+  @include desktop {
+    padding: 1rem 2.5rem;
+  }
+}

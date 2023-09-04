@@ -1,15 +1,7 @@
 import "./Dashboard.scss";
 
 // reactstrap components
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Table,
-  Row,
-  Col,
-} from "reactstrap";
+import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 
 import NavbarDashboard from "../../components/NavbarDashboard/NavbarDashboard";
 import ChartCard from "../../components/ChartCard/ChartCard";
@@ -37,14 +29,15 @@ const Dashboard = () => {
       .then((res) => {
         setLogs(res.data);
         setIsLoading(false);
-      }).catch(err => console.warn(err));
+      })
+      .catch((err) => console.warn(err));
   }, [user]);
 
   if (isLoading) return <h1>Loading</h1>;
 
   return (
     <>
-    <NavbarDashboard userName={user} />
+      <NavbarDashboard userName={user} />
       <main className="content">
         <Row>
           {chartsData.map((chart) => {
@@ -67,30 +60,33 @@ const Dashboard = () => {
                   <b>Logs</b>
                 </CardTitle>
               </CardHeader>
-              <CardBody>
-                <Table className="tablesorter" responsive>
-                  <thead className="text-white">
-                    <tr>
-                      <th>Node</th>
-                      <th className="text-center">Message Types</th>
-                      <th className="text-center">Description</th>
-                      <th className="text-center">Zone</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-white">
-                    {logs.map((log) => {
-                      return (
-                        <LogTableItem
-                          key={log._id}
-                          node={log.node}
-                          badge={log.badge}
-                          description={log.description}
-                          zone={log.zone}
-                        />
-                      );
-                    })}
-                  </tbody>
-                </Table>
+              <CardBody className="logs-card">
+                <div className="logs-tb-head">
+                  <div className="logs-tb-head__title">
+                    <h4 className="logs-tb-head__title-name node">NODE</h4>
+                    <h4 className="logs-tb-head__title-name msg-type">
+                      MESSAGE TYPES
+                    </h4>
+                    <h4 className="logs-tb-head__title-name description">
+                      DESCRIPTION
+                    </h4>
+                    <h4 className="logs-tb-head__title-name zone">ZONE</h4>
+                    <h4 className="logs-tb-head__title-name action">ACTIONS</h4>
+                  </div>
+                </div>
+
+                {logs.map((log) => {
+                  return (
+                    <LogTableItem
+                      key={log._id}
+                      id={log._id}
+                      node={log.node}
+                      badge={log.badge}
+                      description={log.description}
+                      zone={log.zone}
+                    />
+                  );
+                })}
               </CardBody>
             </Card>
           </Col>

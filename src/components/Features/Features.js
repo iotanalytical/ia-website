@@ -26,7 +26,7 @@ const Features = () => {
             <h4 className="features__title">
               <span>Compatibility</span>
             </h4>
-            <p className="description">
+            <p className="features__description">
               Whether your smart home solution uses Android or other Linux
               distributions, IoT analytical can be easily installed through the
               use of its restful API.
@@ -40,7 +40,7 @@ const Features = () => {
             <h4 className="features__title">
               <span>Visualization</span>
             </h4>
-            <p className="description">
+            <p className="features__description">
               All the collected data is served through mobile, web, and hub
               interface. The data is processed and can be accessed in a variety
               of ways.
@@ -54,7 +54,7 @@ const Features = () => {
             <h4 className="features__title">
               <span>Recommendation</span>
             </h4>
-            <p className="description">
+            <p className="features__description">
               IoT Analytical utilizes AI alongside big data to offer the most
               efficient usage behaviour. In time, the system also learns from
               its past and enhances its ability to offer better recommendations.
@@ -68,7 +68,7 @@ const Features = () => {
               <i className="fa fa-tachometer"></i>
             </div>
             <h4>User-friendly dashboard</h4>
-           <p className="description">
+           <p className="features__description">
               IoT analytical application is available on Android, iOS, and web.
               The household owner can access it from anywhere, whenever they
               want. The dashboard is designed to be as simple as possible.
@@ -80,7 +80,7 @@ const Features = () => {
               <i className="fa fa-dollar"></i>
             </div>
             <h4>No hidden costs</h4>
-            <p className="description">
+            <p className="features__description">
               All features available in IoT analytical is available for one-time
               fee payment. No subscription required. No hidden cost, no
               bull*hit!
