@@ -60,11 +60,7 @@ function NavbarDashboard({ userName }) {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              {!failedAuth ? (
-                <Nav.Item className="user-name">{`Welcome ${userName}!`}</Nav.Item>
-              ) : (
-                <Nav.Item className="user-name">{`Welcome Demo user!`}</Nav.Item>
-              )}
+              <Nav.Item className="user-name">{`Welcome ${userName}!`}</Nav.Item>
             </Nav>
             {failedAuth && (
               <Button

@@ -29,16 +29,16 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5050/charts")
+      .get(`http://localhost:5050/charts/${user}`)
       .then((res) => {
         setChartsData(res.data);
-        return axios.get("http://localhost:5050/logs");
+        return axios.get(`http://localhost:5050/logs/${user}`);
       })
       .then((res) => {
         setLogs(res.data);
         setIsLoading(false);
       }).catch(err => console.warn(err));
-  }, []);
+  }, [user]);
 
   if (isLoading) return <h1>Loading</h1>;
 

@@ -5,11 +5,11 @@ import heroImage from "../../assets/images/Hero.webp";
 
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({userName, failedAuth}) => {
   const navigate = useNavigate();
 
   const handleDemoClick = () => {
-    navigate("/dashboard/demo");
+    navigate(`/dashboard/${userName}`);
   };
 
   return (
@@ -17,7 +17,7 @@ const Header = () => {
       <div className="header__info">
         <h1 className="header__title">Analytics Solution for Smart Homes</h1>
         <Button className="header__btn" onClick={handleDemoClick} variant="primary" size="lg">
-          Demo
+          {failedAuth ? "Demo" : "Go to my dashboard"}
         </Button>
       </div>
       <img className="header__img" src={heroImage} alt="smart solutions" />

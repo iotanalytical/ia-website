@@ -1,7 +1,5 @@
 import "./NavbarLanding.scss";
 
-import axios from "axios";
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
@@ -12,34 +10,8 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 
 import logo from "../../assets/images/logo.png";
 
-function NavbarLanding() {
-  const [userName, setUserName] = useState(null);
-  const [failedAuth, setFailedAuth] = useState(false);
-
+function NavbarLanding({ userName, failedAuth, setUserName, setFailedAuth }) {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const token = sessionStorage.getItem("token");
-
-    if (!token) {
-      return setFailedAuth(true);
-    }
-
-    // Get user data from the API
-    axios
-      .get("http://localhost:5050/users/current", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        setUserName(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setFailedAuth(true);
-      });
-  }, []);
 
   const handleLogIn = () => {
     navigate("/login");
