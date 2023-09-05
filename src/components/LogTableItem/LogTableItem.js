@@ -5,8 +5,10 @@ import deleteIcon from "../../assets/icons/delete_outline.svg";
 
 import { Badge } from "reactstrap";
 
-const LogTableItem = ({ id, node, badge, description, zone }) => {
-  const handleDeleteLog = (node, id) => {};
+const LogTableItem = ({ id, node, badge, description, zone, modalToggle }) => {
+  const handleDeleteLog = (node, id) => {
+    modalToggle(node,id);
+  };
 
   return (
     <section className="single-log">

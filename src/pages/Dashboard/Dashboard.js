@@ -6,6 +6,7 @@ import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 import NavbarDashboard from "../../components/NavbarDashboard/NavbarDashboard";
 import ChartCard from "../../components/ChartCard/ChartCard";
 import LogTableItem from "../../components/LogTableItem/LogTableItem";
+import Modal from "../../components/Modal/Modal";
 import FooterDashboard from "../../components/FooterDashboard/FooterDashboard";
 
 import { useEffect, useState } from "react";
@@ -17,7 +18,19 @@ const Dashboard = () => {
   const [chartsData, setChartsData] = useState([]);
   const [logs, setLogs] = useState([]);
 
+  const [isShowing, setIsShowing] = useState(false);
+  const [logItem, setLogItem] = useState({});
+  const [deleteItemSuccess, SetDeleteItemSuccess] = useState(false);
+
   const { user } = useParams();
+
+  function toggle(node, id) {
+    setIsShowing(!isShowing);
+    setLogItem({
+      id,
+      node,
+    });
+  }
 
   useEffect(() => {
     axios
@@ -31,13 +44,23 @@ const Dashboard = () => {
         setIsLoading(false);
       })
       .catch((err) => console.warn(err));
-  }, [user]);
+  }, [user, deleteItemSuccess]);
 
   if (isLoading) return <h1>Loading</h1>;
 
   return (
     <>
+      {isShowing && (
+        <Modal
+          handleClose={toggle}
+          itemName={logItem.node}
+          show={isShowing}
+          deleteId={logItem.id}
+          deleteItemSuccess={SetDeleteItemSuccess}
+        />
+      )}
       <NavbarDashboard userName={user} />
+
       <main className="content">
         <Row>
           {chartsData.map((chart) => {
@@ -84,6 +107,7 @@ const Dashboard = () => {
                       badge={log.badge}
                       description={log.description}
                       zone={log.zone}
+                      modalToggle={toggle}
                     />
                   );
                 })}
