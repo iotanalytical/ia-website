@@ -83,7 +83,7 @@ const Contact = () => {
                 noValidate
                 onSubmit={handleSubmit}
               >
-                {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
+               
                 <input
                   type="text"
                   name="name"
@@ -98,7 +98,7 @@ const Contact = () => {
                 <p className="contact__error">
                   {errors.name && touched.name && errors.name}
                 </p>
-                {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
+              
                 <input
                   type="email"
                   name="email"
@@ -113,7 +113,7 @@ const Contact = () => {
                 <p className="contact__error">
                   {errors.email && touched.email && errors.email}
                 </p>
-                {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
+              
                 <input
                   type="text"
                   name="subject"
@@ -128,7 +128,7 @@ const Contact = () => {
                 <p className="contact__error">
                   {errors.subject && touched.subject && errors.subject}
                 </p>
-                {/* Our input html with passing formik parameters like handleChange, values, handleBlur to input properties */}
+              
                 <textarea
                   name="message"
                   onChange={handleChange}
@@ -141,8 +141,7 @@ const Contact = () => {
                 <p className="contact__error">
                   {errors.message && touched.message && errors.message}
                 </p>
-                {/* Click on submit button to submit the form */}
-
+               
                 <Button
                   className="contact__btn"
                   type="submit"

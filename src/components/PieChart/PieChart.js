@@ -5,8 +5,7 @@ import { Pie } from "react-chartjs-2";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const options = {
-  responsive: true,
-  maintainAspectRatio: false
+  responsive: true
 };
 
 export function PieChart({ chartData }) {

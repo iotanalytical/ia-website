@@ -11,6 +11,7 @@
 
     @include tablet {
       font-size: 0.87rem;
+      margin-bottom: 0;
     }
   }
 
@@ -37,7 +38,6 @@
     @include tablet {
       font-size: 0.9rem;
     }
-
   }
 
   &__link {
@@ -63,10 +63,15 @@
   &__msgtype {
     padding-bottom: 1rem;
 
+    & h5 {
+      @include tablet {
+        margin-bottom: 0;
+      }
+    }
+
     @include tablet {
       padding-bottom: 0;
       width: 39%;
-     
     }
   }
 
