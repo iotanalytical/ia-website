@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/ia-website/static/css/main.e3972836.css",
+    "main.js": "/ia-website/static/js/main.8667d761.js",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/ia-website/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/ia-website/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/ia-website/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/ia-website/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/Hero.webp": "/ia-website/static/media/Hero.1dbf0f77d322083b8379.webp",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/ia-website/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/AvenirNextLTPro-Bold.woff": "/ia-website/static/media/AvenirNextLTPro-Bold.793bc1052a9f4bb5c64b.woff",
+    "static/media/AvenirNextLTPro-Demi.woff": "/ia-website/static/media/AvenirNextLTPro-Demi.5c8196da7b2389dca0ec.woff",
+    "static/media/AvenirNextLTPro-Regular.woff": "/ia-website/static/media/AvenirNextLTPro-Regular.22d834c353d5378b2370.woff",
+    "static/media/AvenirNextLTPro-Bold.woff2": "/ia-website/static/media/AvenirNextLTPro-Bold.fd7c8cd78993ac2463e4.woff2",
+    "static/media/AvenirNextLTPro-Demi.woff2": "/ia-website/static/media/AvenirNextLTPro-Demi.661821307cb2d6613afe.woff2",
+    "static/media/AvenirNextLTPro-Regular.woff2": "/ia-website/static/media/AvenirNextLTPro-Regular.9338f9626cb26c5c53d1.woff2",
+    "static/media/logo.png": "/ia-website/static/media/logo.229c6e7a74a4ccff4231.png",
+    "index.html": "/ia-website/index.html",
+    "static/media/delete_outline.svg": "/ia-website/static/media/delete_outline.2cbb4a63b094d3d9b622b040446a6310.svg",
+    "static/media/chevron_right.svg": "/ia-website/static/media/chevron_right.8bc767eb9cebbb42af635ab011ef1433.svg",
+    "main.e3972836.css.map": "/ia-website/static/css/main.e3972836.css.map",
+    "main.8667d761.js.map": "/ia-website/static/js/main.8667d761.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e3972836.css",
+    "static/js/main.8667d761.js"
+  ]
+}
