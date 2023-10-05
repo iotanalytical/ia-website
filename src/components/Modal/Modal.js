@@ -11,8 +11,10 @@ const IOTModal = ({
   handleClose,
 }) => {
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleDeleteItem = () => {
-    axios.delete(`http://localhost:5050/logs/${deleteId}`).then(() => {
+    axios.delete(`${API_URL}/logs/${deleteId}`).then(() => {
       handleClose();
       deleteItemSuccess((prevState) => !prevState);
     });

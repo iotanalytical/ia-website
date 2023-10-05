@@ -22,6 +22,8 @@ function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   return (
     <>
       <Formik
@@ -33,7 +35,7 @@ function Login() {
             password: values.password,
           };
           axios
-            .post("http://localhost:5050/users/login", newInputs)
+            .post(`${API_URL}/users/login`, newInputs)
             .then((response) => {
               sessionStorage.setItem("token", response.data.token);
               navigate(`/dashboard/${response.data.user}`);

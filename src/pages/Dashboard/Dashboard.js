@@ -22,6 +22,8 @@ const Dashboard = () => {
   const [logItem, setLogItem] = useState({});
   const [deleteItemSuccess, SetDeleteItemSuccess] = useState(false);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const { user } = useParams();
 
   function toggle(node, id) {
@@ -34,17 +36,17 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5050/charts/${user}`)
+      .get(`${API_URL}/charts/${user}`)
       .then((res) => {
         setChartsData(res.data);
-        return axios.get(`http://localhost:5050/logs/${user}`);
+        return axios.get(`${API_URL}/logs/${user}`);
       })
       .then((res) => {
         setLogs(res.data);
         setIsLoading(false);
       })
       .catch((err) => console.warn(err));
-  }, [user, deleteItemSuccess]);
+  }, [user, deleteItemSuccess, API_URL]);
 
   if (isLoading) return <h1>Loading</h1>;
 

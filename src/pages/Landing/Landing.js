@@ -12,6 +12,8 @@ const Landing = () => {
   const [userName, setUserName] = useState("demo");
   const [failedAuth, setFailedAuth] = useState(false);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     const token = sessionStorage.getItem("token");
 
@@ -21,7 +23,7 @@ const Landing = () => {
 
     // Get user data from the API
     axios
-      .get("http://localhost:5050/users/current", {
+      .get(`${API_URL}/users/current`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -33,7 +35,7 @@ const Landing = () => {
         console.log(error);
         setFailedAuth(true);
       });
-  }, []);
+  }, [API_URL]);
 
   return (
     <>
