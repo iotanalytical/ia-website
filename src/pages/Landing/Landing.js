@@ -5,6 +5,7 @@ import NavbarLanding from "../../components/NavbarLanding/NavbarLanding";
 import Header from "../../components/Header/Header";
 import Features from "../../components/Features/Features";
 import FAQ from "../../components/FAQ/FAQ";
+import Team from "../../components/Team/Team";
 import Contact from "../../components/Contact/Contact";
 import Footer from "../../components/Footer/Footer";
 
@@ -48,6 +49,7 @@ const Landing = () => {
       <Header userName={userName} failedAuth={failedAuth} />
       <Features />
       <FAQ />
+      <Team />
       <Contact />
       <Footer />
     </>
