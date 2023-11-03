@@ -3,6 +3,8 @@ import "./Dashboard.scss";
 // reactstrap components
 import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 
+import ReactLoading from 'react-loading';
+
 import NavbarDashboard from "../../components/NavbarDashboard/NavbarDashboard";
 import ChartCard from "../../components/ChartCard/ChartCard";
 import LogTableItem from "../../components/LogTableItem/LogTableItem";
@@ -48,7 +50,7 @@ const Dashboard = () => {
       .catch((err) => console.warn(err));
   }, [user, deleteItemSuccess, API_URL]);
 
-  if (isLoading) return <h1>Loading</h1>;
+  if (isLoading) return <ReactLoading type={"bars"} color={"#007bff"} height={300} width={200} />;
 
   return (
     <>
