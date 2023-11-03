@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 import NavbarLanding from "../../components/NavbarLanding/NavbarLanding";
 import Header from "../../components/Header/Header";
+import Mission from "../../components/Mission/Mission";
+import Product from "../../components/Product/Product";
 import Features from "../../components/Features/Features";
 import FAQ from "../../components/FAQ/FAQ";
 import Team from "../../components/Team/Team";
@@ -47,6 +49,8 @@ const Landing = () => {
         setFailedAuth={setFailedAuth}
       />
       <Header userName={userName} failedAuth={failedAuth} />
+      <Mission />
+      <Product />
       <Features />
       <FAQ />
       <Team />

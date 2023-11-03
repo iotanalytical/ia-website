@@ -59,7 +59,8 @@ const Contact = () => {
         }) => (
           <section id="contact-us" className="contact">
             <div className="container">
-              <h2 className="mb-4 text-center">Contact Us</h2>
+              <h2 className="mb-4 text-center section-title">Contact Us</h2>
+              <p className="text-center mb-4">Please do not hesitate to leave us a message.</p>
               {sendEmail === "success" && (
                 <AlertBox
                   variant={"success"}

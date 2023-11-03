@@ -11,9 +11,17 @@ const Team = () => {
     <section id="team">
       <div className="container-fluid">
         <div className="section-header">
-          <h3>Team</h3>
+          <h3 className="section-title">About Us</h3>
         </div>
+        <p className="text-center text-justify">
+          IoT Analytical founded in Canada in 2019, with the purpose of
+          enhancing, empowering, and helping smart home solutions maintenance.
+          Our Goal is to decrease the high cost of problem diagnosis for smart
+          home solution providers, and, providing suggestions to reduce energy
+          consumption with the aim of saving the environment.
+        </p>
 
+        <h3 className="text-center my-4">Team members</h3>
         <div className="row justify-content-center">
           <div className="col-lg-2 col-md-6">
             <div className="member">

@@ -1,5 +1,10 @@
-#faq {
-  padding: 4.5rem 0 4.5rem 0;
+.product {
+  padding: 80px 12px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+
+  &__header {
+    margin-bottom: 3rem;
+  }
 }
 
 .section-title {
@@ -7,9 +12,9 @@
   color: #222831;
   font-weight: bold;
   position: relative;
-  
+
   &:after {
-    content: '';
+    content: "";
     width: 60px;
     height: 3px;
     background: #007bff;
@@ -17,6 +22,6 @@
     bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 5px; 
+    border-radius: 5px;
   }
 }
