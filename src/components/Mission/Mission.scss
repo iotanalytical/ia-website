@@ -1,9 +1,29 @@
+@use "../../styles/partials/mixins" as *;
+
 .mission {
-  padding: 80px 12px;
+  padding: 60px 12px;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
 
   &__header {
-    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: row-reverse;
+      justify-content: space-around;
+    }
+  }
+
+  &__img {
+    margin-bottom: 1rem;
+    width: 7rem;
+  }
+
+  &__info {
+    @include tablet {
+      width: 50%;
+    }
   }
 }
 
@@ -12,9 +32,9 @@
   color: #222831;
   font-weight: bold;
   position: relative;
-  
+
   &:after {
-    content: '';
+    content: "";
     width: 60px;
     height: 3px;
     background: #007bff;
@@ -22,6 +42,6 @@
     bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 5px; 
+    border-radius: 5px;
   }
 }

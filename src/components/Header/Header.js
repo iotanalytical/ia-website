@@ -2,28 +2,30 @@ import "./Header.scss";
 
 import Button from "react-bootstrap/Button";
 
-import { useNavigate } from "react-router-dom";
+import heroImage from "../../assets/images/banner.jpeg";
 
-const Header = ({ userName, failedAuth }) => {
-  const navigate = useNavigate();
-
+const Header = ({ failedAuth }) => {
   const handleDemoClick = () => {
-    navigate(`/dashboard/${userName}`);
+    document.getElementById("contact-us").scrollIntoView({
+      behavior: "smooth",
+    });
   };
 
   return (
     <section id="home" className="header">
       <div className="header__info">
         <h1 className="header__title">Analytics Solution for Smart Homes</h1>
+        
         <Button
           className="header__btn"
           onClick={handleDemoClick}
           variant="primary"
           size="lg"
         >
-          {failedAuth ? "Demo" : "Go to my dashboard"}
+          {failedAuth ? "Request a demo" : "Go to my dashboard"}
         </Button>
       </div>
+      <img className="header__img" src={heroImage} alt="smart solutions" />
     </section>
   );
 };

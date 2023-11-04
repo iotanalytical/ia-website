@@ -1,33 +1,27 @@
 @use "../../styles/partials/mixins" as *;
 
 .header {
-  background-image: url("../../assets/images/banner.png");
-  background-blend-mode: overlay;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 75vh;
   display: flex;
   flex-direction: column-reverse;
-  padding: 0 0.75rem;
-  margin-top: 0.5rem;
+  margin-top: 3.5rem;
 
   &__title {
     font-weight: 800;
-   
+    text-align: center;
   }
 
-  &__btn {
-    width: 80%;
-    align-items: center;
+  &__img {
+    padding: 0;
+    @include tablet {
+      width: 60%;
+    }
   }
 
   &__info {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    padding-bottom: 2rem;
-    margin-top: 4rem;
+    padding: 0 0.75rem 2rem 0.75rem;
     height: 30%;
 
     @include tablet {
@@ -43,6 +37,15 @@
 
   @include desktop {
     width: 1280px;
-    margin: 3rem auto;
+    margin: 3.5rem auto;
   }
 }
+
+//In case of using backgroud images
+
+//   background-image: url("../../assets/images/banner.png");
+//   background-blend-mode: overlay;
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   height: 75vh;
