@@ -23,10 +23,20 @@
     gap: 1.5rem;
     padding: 0 0.75rem 2rem 0.75rem;
     height: 30%;
+    align-items: center;
 
     @include tablet {
       width: 40%;
     }
+
+    @include desktop {
+      width: 512px;
+      margin-left: auto;
+    }
+  }
+
+  &__btn {
+    width: 90%;
   }
 
   @include tablet {
@@ -34,10 +44,4 @@
     align-items: center;
     justify-content: space-between;
   }
-
-  @include desktop {
-    width: 1280px;
-    margin: 3.5rem auto;
-  }
 }
-
