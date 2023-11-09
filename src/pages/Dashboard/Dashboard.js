@@ -52,13 +52,9 @@ const Dashboard = () => {
 
   if (isLoading)
     return (
-      <ReactLoading
-        type={"bars"}
-        color={"#007bff"}
-        style={{ margin: "auto" }}
-        height={100}
-        width={200}
-      />
+      <div className="loader">
+        <ReactLoading type={"bars"} color={"#007bff"} height={50} width={100} />
+      </div>
     );
 
   return (
