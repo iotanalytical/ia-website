@@ -7,7 +7,7 @@ import Mission from "../../components/Mission/Mission";
 import Product from "../../components/Product/Product";
 import Features from "../../components/Features/Features";
 import Team from "../../components/Team/Team";
-import FAQ from "../../components/FAQ/FAQ";
+// import FAQ from "../../components/FAQ/FAQ";
 import Contact from "../../components/Contact/Contact";
 import Footer from "../../components/Footer/Footer";
 
@@ -53,7 +53,7 @@ const Landing = () => {
       <Product />
       <Features />
       <Team />
-      <FAQ />
+      {/* <FAQ /> */}
       <Contact />
       <Footer />
     </>

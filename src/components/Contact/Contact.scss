@@ -18,6 +18,10 @@
   &__alert {
     width: 100%;
     margin: 0 auto;
+
+    @include desktop {
+      width: 60%;
+    }
   }
 
   &__message {
@@ -41,9 +45,9 @@
   color: #222831;
   font-weight: bold;
   position: relative;
-  
+
   &:after {
-    content: '';
+    content: "";
     width: 60px;
     height: 3px;
     background: #007bff;
@@ -51,6 +55,6 @@
     bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 5px; 
+    border-radius: 5px;
   }
 }

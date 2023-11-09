@@ -55,7 +55,7 @@ function NavbarLanding({ userName, failedAuth, setUserName, setFailedAuth }) {
               <Nav.Link href="#product">Product</Nav.Link>
               <Nav.Link href="#about">Features</Nav.Link>
               <Nav.Link href="#team">About Us</Nav.Link>
-              <Nav.Link href="#faq">FAQ</Nav.Link>
+              {/* <Nav.Link href="#faq">FAQ</Nav.Link> */}
               <Nav.Link href="#contact-us">Contact Us</Nav.Link>
 
               {!failedAuth && (

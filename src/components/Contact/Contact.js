@@ -60,7 +60,10 @@ const Contact = () => {
           <section id="contact-us" className="contact">
             <div className="container">
               <h2 className="mb-4 text-center section-title">Contact Us</h2>
-              <p className="text-center mb-4">Please do not hesitate to leave us a message.</p>
+              <p className="text-center mb-4">
+                Please do not hesitate to leave us a message.
+              </p>
+
               {sendEmail === "success" && (
                 <AlertBox
                   variant={"success"}
@@ -73,7 +76,7 @@ const Contact = () => {
                 <AlertBox
                   variant={"warning"}
                   icon={"exclamation"}
-                  text={"Ooops! There was an error"}
+                  text={"Ooops! There was an error. Please try again later"}
                   size={"contact__alert"}
                 />
               )}
@@ -84,7 +87,6 @@ const Contact = () => {
                 noValidate
                 onSubmit={handleSubmit}
               >
-               
                 <input
                   type="text"
                   name="name"
@@ -99,7 +101,7 @@ const Contact = () => {
                 <p className="contact__error">
                   {errors.name && touched.name && errors.name}
                 </p>
-              
+
                 <input
                   type="email"
                   name="email"
@@ -114,7 +116,7 @@ const Contact = () => {
                 <p className="contact__error">
                   {errors.email && touched.email && errors.email}
                 </p>
-              
+
                 <input
                   type="text"
                   name="subject"
@@ -129,7 +131,7 @@ const Contact = () => {
                 <p className="contact__error">
                   {errors.subject && touched.subject && errors.subject}
                 </p>
-              
+
                 <textarea
                   name="message"
                   onChange={handleChange}
@@ -142,7 +144,7 @@ const Contact = () => {
                 <p className="contact__error">
                   {errors.message && touched.message && errors.message}
                 </p>
-               
+
                 <Button
                   className="contact__btn"
                   type="submit"
