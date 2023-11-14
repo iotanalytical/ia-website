@@ -24,6 +24,10 @@ function Login() {
 
   const API_URL = process.env.REACT_APP_API_URL;
 
+  const handleGuestLogin = () => {
+    navigate(`/dashboard/demo`);
+  }
+
   return (
     <>
       <Formik
@@ -101,6 +105,8 @@ function Login() {
                   </p>
                   <button type="submit">Login</button>
                 </form>
+                <p className="guest-text">Don't have an account?!</p>
+                <button className="guest-login" onClick={handleGuestLogin}>Login as guest</button>
               </div>
             </div>
           </section>
