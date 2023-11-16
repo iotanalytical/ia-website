@@ -23,6 +23,11 @@ ChartJS.register(
 
 const options = {
   responsive: true,
+  elements: {
+    line: {
+      tension: 0.4,
+    },
+  },
   plugins: {
     legend: {
       display: false,
